@@ -105,7 +105,7 @@ class DataPipeline
 
     api.attr("write_array")(data_product, component, Array(array_np));
   }
-
+  ~DataPipeline();
 
   private:
   pybind11::object  api;

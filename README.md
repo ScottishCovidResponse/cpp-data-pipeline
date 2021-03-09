@@ -17,41 +17,19 @@ This directory contains C++ bindings for the Python data pipeline API.
   source .venv/bin/activate
   ```
 
-- Install the required packages:
-  ```
-  pip install -r bindings/cpp/requirements.txt
-  ```
-  
-- Check that `data_pipeline_api` is working by running the tests,
-  `pytest tests`, from the top-level repository directory.
+- CMake will fetch and install all other requirements.
 
 ## Building the C++ wrapper library
 
 ```
-cd bindings/cpp
-make
-```
-
-## Run the C++ wrapper tests
-
-The test program for the wrapper can be run as:
-```
-make test
-```
-
-## Alternative build with CMake
-
-Alternative to the above the library can also be built using CMake.
-
-```
-cmake -H. -Bbuild
+cmake . -Bbuild
 cmake --build build
 ```
 
-the tests for this method have been written using GTest and can be run using the created binary:
-
-```
-./build/bin/SCRCdataAPI-tests
+## Run the C++ wrapper tests
+The test binary can be found in the `build` folder after the build has completed:
+```bash
+./build/bin/datapipeline-tests
 ```
 
 ## Usage

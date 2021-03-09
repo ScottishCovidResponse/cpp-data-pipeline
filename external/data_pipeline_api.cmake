@@ -6,6 +6,7 @@ ExternalProject_Add(datapipeline_python
     BUILD_COMMAND ""
     SOURCE_DIR ${CMAKE_BINARY_DIR}/external/data_pipeline_api
     INSTALL_COMMAND ${PYTHON_EXECUTABLE} -m pip install ${CMAKE_BINARY_DIR}/external/data_pipeline_api
+    GIT_SUBMODULES ""
 )
 
 ExternalProject_Get_Property(datapipeline_python source_dir)

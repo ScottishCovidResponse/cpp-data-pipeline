@@ -14,7 +14,7 @@ jobs:
           python-version: '3.8'
       - name: Build C++ Bindings
         run: |
-          cmake -H. -Bbuild
+          cmake . -Bbuild
           cmake --build build
       - name: Run Unit Tests
         run: |

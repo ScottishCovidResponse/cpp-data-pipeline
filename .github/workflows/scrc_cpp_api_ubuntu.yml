@@ -1,0 +1,28 @@
+name: SCRC C++ API (Linux)
+
+on: [push]
+
+jobs:
+  build: 
+    name: 'Ubuntu Latest'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Build C++ Bindings
+        run: |
+          cmake -H. -Bbuild
+          cmake --build build
+      - name: Run Unit Tests
+        run: |
+          ./build/datapipeline-tests
+          if [ $? -eq 0 ]; then
+            echo "Unit tests completed successfully"
+            exit 0
+          else
+            echo "Unit tests failed"
+            exit 1
+          fi

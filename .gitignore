@@ -1,0 +1,5 @@
+build/**
+tests/data/output-*/
+tests/test_config/output-*/
+.mypy*
+.pytest*

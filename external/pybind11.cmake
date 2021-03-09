@@ -1,0 +1,17 @@
+INCLUDE(ExternalProject)
+
+ExternalProject_Add(pybind11_src
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+    GIT_TAG v2.6.2
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+)
+
+ExternalProject_Get_Property(pybind11_src source_dir)
+SET(PYBIND11_INCLUDE_DIRS ${source_dir}/include)
+SET(PYBIND11 pybind11)
+ADD_LIBRARY(${PYBIND11} INTERFACE)
+TARGET_INCLUDE_DIRECTORIES(${PYBIND11} INTERFACE ${PYBIND11_INCLUDE_DIRS})
+MESSAGE(STATUS "[Pybind11]:")
+MESSAGE(STATUS "\tPYBIND11 INCLUDE: ${PYBIND11_INCLUDE_DIRS}")

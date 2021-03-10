@@ -8,13 +8,19 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: actions/checkout@v2
+      - name: Test Prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get install -y libgsl-dev clang lcov cppcheck similarity-tester clang-format
+          sudo apt-get install -y htmldoc poppler-utils clang-tidy graphviz doxygen flawfinder
       - name: Setup Python3.8
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
       - name: Build C++ Bindings
         run: |
-          cmake . -Bbuild
+          cmake . -Bbuild -DCODE_COVERAGE=ON
           cmake --build build
       - name: Run Unit Tests
         run: |
@@ -26,3 +32,4 @@ jobs:
             echo "Unit tests failed"
             exit 1
           fi
+          bash <(curl -s https://codecov.io/bash) -f datapipeline.info || echo "Codecov did not collect coverage reports"

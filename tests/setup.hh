@@ -11,7 +11,6 @@
 #include "pybind11/stl.h"
 #include "pybind11/operators.h"
 
-
 class SCRCAPITest : public ::testing::Test
 {
     public:

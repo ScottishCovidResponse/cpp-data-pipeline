@@ -18,7 +18,7 @@ jobs:
           cmake --build build
       - name: Run Unit Tests
         run: |
-          ./build/bin/datapipeline-tests
+          cmake --build build --target test
           if [ $? -eq 0 ]; then
             echo "Unit tests completed successfully"
             exit 0

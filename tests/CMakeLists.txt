@@ -1,5 +1,7 @@
 find_package(Threads REQUIRED)
 
+enable_testing()
+
 include(ExternalProject)
 
 ExternalProject_Add(

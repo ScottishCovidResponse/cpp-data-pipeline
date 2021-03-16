@@ -60,7 +60,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     setup_target_for_coverage_lcov(
         NAME coverage
         EXECUTABLE ${PROJECT_NAME}-tests
-        DEPENDENCIES ${PROJECT_NAME}-tests
+        DEPENDENCIES ${PROJECT_NAME}
         EXCLUDE ${CMAKE_BINARY_DIR}
         )
 endif()

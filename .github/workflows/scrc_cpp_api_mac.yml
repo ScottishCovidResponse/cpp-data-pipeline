@@ -26,6 +26,3 @@ jobs:
             echo "Unit tests failed"
             exit 1
           fi
-      - name: Code Coverage
-        run: |
-          cmake --build build --target coverage

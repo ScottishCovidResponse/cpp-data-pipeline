@@ -2,6 +2,8 @@
 # C++ bindings for Python Data Pipeline API
 [![SCRC C++ API (Linux)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_ubuntu.yml/badge.svg)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_ubuntu.yml)[![SCRC C++ API (macOS)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_mac.yml/badge.svg)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_mac.yml)[![SCRC C++ API (Windows)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_windows.yml/badge.svg)](https://github.com/ScottishCovidResponse/cpp-data-pipeline/actions/workflows/scrc_cpp_api_windows.yml)
 
+[![codecov](https://codecov.io/gh/ScottishCovidResponse/cpp-data-pipeline/branch/master/graph/badge.svg?token=BNP8U30HVS)](https://codecov.io/gh/ScottishCovidResponse/cpp-data-pipeline)
+
 This directory contains C++ bindings for the Python data pipeline API.
 
 (See [DiRAC CSD3](#DiRAC_CSD3) for specific notes on installing on that machine.)
@@ -127,11 +129,3 @@ first. The default python does not have python3-config, which is required for th
 - We have not been successful in running with Conda. The problem
   appears to be related to the provided Python being compiled with a
   different compiler than is used to build the C++ bindings.
-
-- requirements.txt can be manually updated from environment.yml with
-  ```
-  cd bindings/cpp
-  make requirements.txt
-  ```
-  as long as a python with pyyaml is available. A better solution should probably be
-  found.

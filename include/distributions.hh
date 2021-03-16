@@ -24,7 +24,10 @@ class Distribution
     public:
         string name;
         Distribution() {}
-        Distribution(string name, params parameters, arr_params arr_parameters=arr_params()) : _parameters(parameters), name(name){}
+        Distribution(string name, params parameters, arr_params arr_parameters=arr_params()) : 
+            _parameters(parameters),
+            name(name),
+            _array_parameters(arr_parameters) {}
         friend ostream& operator<<(ostream& os, const Distribution d)
         {
             os << "Distribution('" << d.name << "', ";

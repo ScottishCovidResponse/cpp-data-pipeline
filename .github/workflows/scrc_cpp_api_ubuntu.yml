@@ -18,11 +18,11 @@ jobs:
           python-version: '3.x'
       - name: Build C++ Bindings
         run: |
-          cmake . -Bbuild -DCODE_COVERAGE=ON
+          cmake . -Bbuild
           cmake --build build
       - name: Run Unit Tests
         run: |
-          ./build/bin/datapipeline-tests
+          cmake --build build --target test
           if [ $? -eq 0 ]; then
             echo "Unit tests completed successfully"
             exit 0

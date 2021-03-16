@@ -1,4 +1,4 @@
-name: SCRC C++ API (Windows)
+name: Windows
 
 on: [push]
 
@@ -9,21 +9,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install CMake on Windows
+      - name: Install CMake and Python on Windows
         uses: msys2/setup-msys2@v2
         with:
             update: true
             install: >-
                 cmake
                 make
-      - name: Setup Python3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+                mingw-w64-i686-python
       - name: Build C++ Bindings
         run: |
           cmake . -Bbuild
           cmake --build build
+        shell: msys2 {0}
       - name: Run Unit Tests
         run: |
           ./build/bin/datapipeline-tests
